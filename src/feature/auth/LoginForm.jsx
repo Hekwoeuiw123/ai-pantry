@@ -24,7 +24,7 @@ const LoginForm = () => {
             toast.success("Welcome Back !! ",displayName)
             navigate('/')
         } catch (error) {
-            setError(error)
+            setError(error.message)
             toast.error("Error Occured !! ", error.message)
         } finally {
             setLoading(false)
@@ -33,7 +33,7 @@ const LoginForm = () => {
 
     return (
         <form className='auth-form' onSubmit={handleSubmit}>
-            {error && <p className="error">{error.message}</p>}
+            {error && <p className="error">{error}</p>}
             <label htmlFor="email">Email</label>
             <input
                 type="email"

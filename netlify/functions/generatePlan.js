@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+const { GoogleGenerativeAI } = require('@google/generative-ai');;
 
 // Initialize the Gemini client
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
@@ -52,7 +52,7 @@ const getPlannerPrompt = (ingredients) => {
 };
 
 // The main Netlify function handler
-export const handler = async (event) => {
+exports.handler = async (event) => {
     try {
         const { ingredients } = JSON.parse(event.body);
         if (!ingredients || ingredients.length === 0) {

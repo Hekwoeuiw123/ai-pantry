@@ -1,5 +1,6 @@
-import axios from 'axios'
-
+// import axios from 'axios'
+// Because backed common js ka use krta hai 
+const axios = require('axios');
 // ViT ( Vision Transformer By Google) Modal hai that give result like waht is in img take img as input
 // const HG_URL = 'https://api-inference.huggingface.co/models/google/vit-base-patch16-224-in21k'
 const HG_URL='https://router.huggingface.co/hf-inference/models/google/vit-base-patch16-224'
@@ -8,7 +9,7 @@ const HG_URL='https://router.huggingface.co/hf-inference/models/google/vit-base-
 // using fetch/axios
 
 //event have HTTP request information (like body, headers, etc.).
-export default async function handler(event) {
+exports.handler = async function(event) {
     // This is the Hugging Face API model we'll use for food recognition.
 
 

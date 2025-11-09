@@ -1,5 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import axios from 'axios';
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // Initialize Gemini client
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
@@ -53,7 +52,7 @@ const getRecipePrompt = (ingredients) => {
   `;
 };
 
-export async function handler(event){
+exports.handler = async (event) =>{
      try {
         const {ingredients} = JSON.parse(event.body)
         if(ingredients.length === 0 && !ingredients){
