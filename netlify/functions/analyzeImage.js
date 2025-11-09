@@ -13,7 +13,7 @@ export default async function handler(event) {
 
 
     // this is the imageURL that we paased in body when we r in aiService.js
-    const { imageURL } = event.body
+    const { imageURL } = JSON.parse(event.body)
 
     if (!imageURL) {
         return {
@@ -23,12 +23,15 @@ export default async function handler(event) {
     }
 
     try {
+
+        // So It runs on Backend that know only Node.js 
+        // thereFore we put process.env 
         const response = await axios.post(
             HG_URL,
             { inputs: imageURL },
             {
                 headers: {
-                    'Authorization': `Bearer ${import.meta.env.HUGGING_FACE_API_KEY}`,
+                    'Authorization': `Bearer ${process.env.HUGGING_FACE_API_KEY}`,
                     'Content-Type': 'application/json',
                 },
             }

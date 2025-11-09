@@ -3,6 +3,10 @@
   publish = "dist"          
   functions = "netlify/functions"
 
+# Set a longer timeout for all functions
+[functions]
+  timeout = 25 # Increase timeout to 25 seconds
+
 # Redirect all frontend routes to index.html (important for React Router)
 [[redirects]]
   from = "/*"

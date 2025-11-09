@@ -1,7 +1,7 @@
 import { createClient } from 'pexels';
 
 // Initialize the Pexels client
-const client = createClient(import.meta.env.PEXELS_API_KEY);
+const client = createClient(process.env.PEXELS_API_KEY);
 
 export const handler = async (event) => {
   // Get the search query from the URL (e.g., .../getRecipeImage?query=chicken)
