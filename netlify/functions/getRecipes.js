@@ -54,8 +54,10 @@ const getRecipePrompt = (ingredients) => {
 
 exports.handler = async (event) =>{
      try {
+      
         const {ingredients} = JSON.parse(event.body)
-        if(ingredients.length === 0 && !ingredients){
+        console.log(ingredients);
+        if(ingredients.length === 0 || !ingredients){
             return {
                 statusCode:400,
                 body:JSON.stringify({error:'Ingredients Not Fount ,Ingredients are required.' })
@@ -63,7 +65,9 @@ exports.handler = async (event) =>{
         }
 
         const result = await model.generateContent(getRecipePrompt(ingredients))
-        const response =await result.response
+        console.log(result);
+        
+        const response = result.response
         const JsonText = response.text() // dont need to stringify cuz already in string
 
         return {

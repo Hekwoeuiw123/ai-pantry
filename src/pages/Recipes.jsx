@@ -15,7 +15,7 @@ const Recipes = () => {
   const handleGenerateButton = async (ingredients) => {
     try {
       setLoading(true)
-      setError('');
+      setError(null);
       setRecipes([]);
       const newRecipes = await getRecipes(ingredients)
       setRecipes(newRecipes)
