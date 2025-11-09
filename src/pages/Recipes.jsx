@@ -21,7 +21,7 @@ const Recipes = () => {
       setRecipes(newRecipes)
       setLoading(false)
     } catch (error) {
-      setError(err.message);
+      setError(error.message);
       setLoading(false)
     }
   }
