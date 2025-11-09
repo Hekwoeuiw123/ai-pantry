@@ -44,13 +44,13 @@ const RegisterForm = () => {
 
     try {
       setLoading(true)
-      setError("")
+      setError(null)
       await signUpWithEmail(email, password)
       toast.success("Registered Successfully 🎉")
       navigate('/')
     } catch (error) {
       setError(error)
-      toast.error("Error Occured !! ", error)
+      toast.error("Error Occured !! ", error.message)
     } finally {
       setLoading(false)
     }
@@ -58,7 +58,7 @@ const RegisterForm = () => {
 
   return (
     <form className='auth-form' onSubmit={handleSubmit}>
-      {error && <p className="error">{error}</p>}
+      {error && <p className="error">{error.message}</p>}
 
       <label htmlFor="email">Email</label>
       <input
