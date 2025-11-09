@@ -22,14 +22,13 @@ export default async function handler(event) {
         };
     }
 
-    const { HUGGING_FACE_API_KEY } = process.env;
     try {
         const response = await axios.post(
             HG_URL,
             { inputs: imageURL },
             {
                 headers: {
-                    'Authorization': `Bearer ${HUGGING_FACE_API_KEY}`,
+                    'Authorization': `Bearer ${import.meta.env.HUGGING_FACE_API_KEY}`,
                     'Content-Type': 'application/json',
                 },
             }
