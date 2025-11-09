@@ -1,0 +1,53 @@
+.header {
+  height: var(--header-height);
+  flex-shrink: 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.header-title {
+  font-size: 1.5rem; /* Made title bigger */
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem; 
+}
+
+ .user-avtar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+ .user-avtar img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+}
+
+.logout-button-simple {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 99px; /* Circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logout-button-simple:hover {
+  background: var(--bg-color);
+}
+.logout-button-simple .nav-icon {
+  color: var(--text-light);
+}

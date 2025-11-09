@@ -1,0 +1,278 @@
+:root {
+  --status-safe: #22c55e; /* Green */
+  --status-safe-bg: #f0fdf4;
+  --status-soon: #f59e0b; /* Amber */
+  --status-soon-bg: #fffbeb;
+  --status-soon-text: #b45309;
+  --status-expired: #ef4444; /* Red */
+  --status-expired-bg: #fef2f2;
+  --status-expired-text: #b91c1c;
+}
+.pantry-form ,.pantry-edit-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pantry-form h2 ,.pantry-edit-form h2{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark, #2d3748);
+}
+
+.pantry-form label ,.pantry-edit-form label {
+  display: block;
+  font-weight: 500;
+  color: var(--text-dark, #2d3748);
+  margin-bottom: -0.5rem; /* Pulls label closer to input */
+}
+
+.pantry-form input,
+.pantry-form select, 
+.pantry-edit-form input,
+.pantry-edit-form select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pantry-form input:focus,
+.pantry-form select:focus,
+.pantry-edit-form input:focus,
+.pantry-edit-form select:focus {
+  outline: none;
+  border-color: var(--primary-color, #22c55e);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+/* === Main Submit Button for Forms === */
+.pantry-form button[type="submit"] ,
+.pantry-edit-form button[type="submit"]{
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--primary-color, #22c55e);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.pantry-form button[type="submit"]:hover:not(:disabled) {
+  background-color: var(--primary-hover, #1aa750);
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2);
+  transform: translateY(-2px);
+}
+
+.pantry-form button[type="submit"]:disabled {
+  background-color: #94dcb2;
+  cursor: not-allowed;
+}
+
+/* === Pantry Item Card === */
+.item-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.item-category {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--primary-color, #22c55e);
+  padding: 0.25rem 0.6rem;
+  border-radius: 99px; /* Pill shape */
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.item-quantity {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light, #718096);
+}
+
+.item-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark, #2d3748);
+  margin: 0;
+}
+
+.item-expire-date {
+  color: var(--text-light, #718096);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Base button style for actions */
+.item-actions button {
+  flex: 1; /* Make buttons share space */
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-edit {
+  background: transparent;
+  border-color: #cbd5e1;
+  color: var(--text-dark, #2d3748);
+}
+.btn-edit:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.btn-delete {
+  background: transparent;
+  border-color: #fecaca;
+  color: #ef4444;
+}
+.btn-delete:hover {
+  background: #fef2f2;
+  border-color: #f87171;
+}
+
+/* Deleting state */
+.item-card--deleting {
+  display: grid;
+  place-items: center;
+  min-height: 150px;
+  background: #fdfdfd;
+  border: 1px dashed #e2e8f0;
+}
+
+/* --- 1. Safe (Default State) --- */
+/* We use a thick left border to show the status clearly */
+.pantry-item--safe {
+  border-left: 5px solid var(--status-safe);
+}
+
+
+.pantry-item--safe:hover {
+  background: var(--status-safe-bg);
+}
+
+
+/* --- 2. Expiring Soon (Warning) --- */
+.pantry-item--expiring_soon {
+  border-left: 5px solid var(--status-soon);
+  background: var(--status-soon-bg);
+}
+.pantry-item--expiring_soon:hover {
+  background: var(--status-soon-bg);
+}
+
+
+/* Make the expiry date text stand out */
+.pantry-item--expiring_soon .item-expire-date {
+  color: var(--status-soon-text);
+  font-weight: 600; /* Bolder */
+}
+
+
+/* --- 3. Expired (Error) --- */
+.pantry-item--expired {
+  border-left: 5px solid var(--status-expired);
+  background: var(--status-expired-bg);
+  opacity: 0.9;
+}
+.pantry-item--expired:hover {
+  background: var(--status-expired-bg);
+}
+/* Apply a line-through to show the item is expired */
+.pantry-item--expired .item-name,
+.pantry-item--expired .item-expire-date {
+  color: var(--status-expired-text);
+  text-decoration: line-through;
+}
+
+.pantry-item--expired .item-expire-date {
+  font-weight: 600;
+}
+
+/* === Confirmation Modal === */
+.confirm-modal-content {
+  text-align: center;
+}
+
+.confirm-modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark, #2d3748);
+}
+
+.confirm-modal-content p {
+  color: var(--text-light, #718096);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.confirm-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.confirm-modal-actions button {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-confirm-cancel {
+  background: #f1f5f9;
+  color: var(--text-dark, #2d3748);
+}
+.btn-confirm-cancel:hover {
+  background: #e2e8f0;
+}
+
+.btn-confirm-delete {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-confirm-delete:hover {
+  background: #dc2626;
+}

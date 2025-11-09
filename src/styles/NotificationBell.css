@@ -1,0 +1,78 @@
+:root {
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --status-expired: #ef4444;
+    /* Red for the dot */
+    --bg-white: #ffffff;
+}
+
+.notification-bell {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    /* Add some padding for a good click target */
+    border-radius: 50%;
+    /* Make it circular */
+    color: var(--text-light, #718096);
+    transition: background 0.2s, color 0.2s;
+    display: grid;
+    place-items: center;
+}
+
+.notification-bell:hover {
+    background: #f1f5f9;
+    /* Light gray background on hover */
+    color: var(--text-dark, #2d3748);
+}
+
+.notification-dot {
+    position: absolute;
+    top: 0.25rem;
+    /* Adjust to position correctly on the bell */
+    right: 0.25rem;
+    /* Adjust to position correctly on the bell */
+
+    /* Sizing */
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    /* Add horizontal padding for numbers > 9 */
+
+    /* Styling */
+    background-color: var(--status-expired, #ef4444);
+    color: white;
+    border-radius: 99px;
+    /* Make it a "pill" or circle */
+    border: 2px solid var(--bg-white, #ffffff);
+    /* Creates separation */
+
+    /* Text */
+    font-size: 0.75rem;
+    /* 12px */
+    font-weight: 600;
+
+    /* Centering the text inside the dot */
+    display: grid;
+    place-items: center;
+    line-height: 1;
+    /* Ensure text is vertically centered */
+
+    /* Animation */
+    transform: scale(1);
+    /* animation: pulse 1s infinite alternate; */
+}
+
+/* Animation for the dot to draw attention */
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+    }
+
+    to {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0);
+    }
+}

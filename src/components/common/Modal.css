@@ -1,0 +1,107 @@
+/* === Keyframe Animations === */
+/* This makes the overlay fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* This makes the modal content "pop" in */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* This makes the modal content "pop" out at time of closing */
+@keyframes popOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+}
+
+/* === 1. The Full-Screen Backdrop === */
+.modal-overlay {
+  /* Display */
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Color & Layering */ 
+  background: rgba(45, 55, 72, 0.6); 
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000; 
+  
+  /* Animation */
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* === 2. The Modal "Window" === */
+.modal-content {
+  /* Sizing */
+  max-width: 500px;
+  width: 90%; /* Responsive hai for small screens */
+  
+  /* Appearance */
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  /* Positioning */
+  position: relative; 
+  
+  /* Animation */
+  animation: popIn 0.2s ease-out forwards;
+}
+
+/* === 3. The 'X' Close Button === */
+.modal-close-btn {
+  /* Positioning */
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  
+  /* Appearance */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  
+  /* Style the icon color */
+  color: var(--text-light, #718096); 
+  
+  /* Make the click target a circle */
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  
+  /* Transitions */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.modal-close-btn:hover {
+  background-color: #e5f0fa; /* Light gray background on hover */
+  color: var(--text-dark, #2d3748);
+}
