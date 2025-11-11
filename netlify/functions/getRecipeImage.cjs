@@ -1,5 +1,5 @@
 const { createClient } = require('pexels');
-
+require('dotenv').config();
 // Initialize the Pexels client
 const client = createClient(process.env.PEXELS_API_KEY);
 

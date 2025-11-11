@@ -5,7 +5,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // Initialize Gemini client
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' }); // cheap hai to generate the text
+const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-lite' }); // cheap hai to generate the text
 
 // Prompt to get Result
 const getRecipePrompt = (ingredients) => {
