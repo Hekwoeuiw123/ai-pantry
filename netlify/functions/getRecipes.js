@@ -1,8 +1,11 @@
+// const dotenv = require("dotenv");
+// dotenv.config();  // ✅ Load .env before anything else
+
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // Initialize Gemini client
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' }); // cheap hai to generate the text
+const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' }); // cheap hai to generate the text
 
 // Prompt to get Result
 const getRecipePrompt = (ingredients) => {
@@ -65,10 +68,11 @@ exports.handler = async (event) =>{
         }
 
         const result = await model.generateContent(getRecipePrompt(ingredients))
-        console.log(result);
+       
         
         const response = result.response
         const JsonText = response.text() // dont need to stringify cuz already in string
+         console.log(JsonText);
 
         return {
             statusCode :200,

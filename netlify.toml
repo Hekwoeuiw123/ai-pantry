@@ -5,9 +5,10 @@
 
 # Set a longer timeout for all functions
 [functions]
-  timeout = 25 # Increase timeout to 25 seconds
   node_bundler = "esbuild"
   external_node_modules = ["@google/generative-ai"]
+  [functions."*"]
+    timeout = 40
 
 # Redirect all frontend routes to index.html (important for React Router)
 [[redirects]]

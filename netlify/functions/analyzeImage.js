@@ -1,6 +1,7 @@
 // import axios from 'axios'
 // Because backed common js ka use krta hai 
 const axios = require('axios');
+require('dotenv').config();
 // ViT ( Vision Transformer By Google) Modal hai that give result like waht is in img take img as input
 // const HG_URL = 'https://api-inference.huggingface.co/models/google/vit-base-patch16-224-in21k'
 const HG_URL='https://router.huggingface.co/hf-inference/models/google/vit-base-patch16-224'
@@ -38,11 +39,13 @@ exports.handler = async function(event) {
             }
         )
         const predictions = response.data
+        console.log(predictions) 
         // result come with like this so to get 1 with high prob we do this
         //{ lable : "tomato , tomatoleaf" ,  score:0.045988 }
         const foodLabels = predictions
             .filter(pred => pred.score > 0.02 && !pred.label.includes('person'))
             .map(pred => pred.label.split(',')[0]);
+        console.log(foodLabels)    
         return {
             statusCode: 200,
             body: JSON.stringify({ ingredients: foodLabels.slice(0, 5) }), // Send top 5

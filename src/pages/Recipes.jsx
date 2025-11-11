@@ -18,7 +18,9 @@ const Recipes = () => {
       setError(null);
       setRecipes([]);
       const newRecipes = await getRecipes(ingredients)
-      setRecipes(newRecipes)
+      const new_Recipes = newRecipes.replace(/```json|```/g, '');
+      // console.log();
+      setRecipes(JSON.parse(new_Recipes))
       setLoading(false)
     } catch (error) {
       setError(error.message);

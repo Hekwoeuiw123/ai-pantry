@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchImage } from '../../services/aiService'
-
+import Skeleton from '../../components/common/Skeleton'
 const RecipeImage = ({ imagePrompt, title }) => {
     const [loading, setLoading] = useState(true)
     const [imageUrl, setImageUrl] = useState(null)
@@ -19,7 +19,7 @@ const RecipeImage = ({ imagePrompt, title }) => {
         return <Skeleton height="200px" />;
     }
     return (
-        <img src={url}
+        <img src={imageUrl}
             alt={title}
             className="recipe-card-image"
             // Fallback in case the Pexels URL is broken

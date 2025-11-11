@@ -6,7 +6,7 @@ import { addPantryItem } from '../../services/pantryService/'
 import React, { useState } from 'react'
 import { InfinitySpin } from 'react-loader-spinner';
 import '../../styles/ImageUpload.css'
-const ImageUpload = () => {
+const ImageUpload = ({onSuccess}) => {
   const { currentUser } = useAuthData();
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
@@ -55,8 +55,8 @@ const ImageUpload = () => {
           name: itemName.charAt(0).toUpperCase() + itemName.slice(1),
           quantity: 1,
           category: 'Other',
-          expirationDate: '',
-          userId: currentUser.uid,
+          expirationDate: 'N/A',
+          userID: currentUser.uid,
         };
         return addPantryItem(newItem)
       })])
