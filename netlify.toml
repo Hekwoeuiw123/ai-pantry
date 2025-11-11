@@ -6,7 +6,7 @@
 # Set a longer timeout for all functions
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["@google/generative-ai"]
+  external_node_modules = ["axios","pexels","@google/generative-ai"]
   [functions."*"]
     timeout = 40
 
