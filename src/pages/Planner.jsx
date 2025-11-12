@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { usePantry } from '../context/pantryContext'
 import { getMealPlan } from '../services/aiService'
 import { InfinitySpin } from 'react-loader-spinner'
@@ -11,17 +11,40 @@ const Planner = () => {
   const [error, setError] = useState(null);
   const { item: pantryItems, loading: pantryLoading } = usePantry()
 
+  const abortControllerRef = useRef(null);
+  useEffect(() => {
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort()
+      }
+    }
+  }, [])
+
   const handleGenerate = async () => {
+    const controller = new AbortController()
+    abortControllerRef.current = controller
     setLoading(true)
-    setError("")
+    setError(null)
     try {
       const ingredientNames = pantryItems.map(item => item.name);
-      const newPlan = await getMealPlan(ingredientNames)
-      setPlan(newPlan)
+      const newPlan = await getMealPlan(ingredientNames , controller.signal)
+      if (newPlan) {
+        setPlan(newPlan)
+      } else {
+        if (!controller.signal.aborted) {
+          setError('Failed to get Plan. Please try again.');
+        }
+      }
     } catch (error) {
-      setError(error.message)
+      if (!controller.signal.aborted) {
+        setError('An unexpected error occurred.', error.message);
+      }
+    } finally {
+      if (abortControllerRef.current === controller) {
+        abortControllerRef.current = null;
+      }
+      setLoading(false)
     }
-    setLoading(false)
   }
   return (
     <div className='page-container'>
@@ -34,7 +57,7 @@ const Planner = () => {
       {error && <p className="auth-error">{error}</p>}
       {loading && <InfinitySpin height="24" width="24" />}
       {/* Generate a Grid of Plan  */}
-      <MealPlanner plan = {plan}/>
+      <MealPlanner plan={plan} />
     </div>
   )
 }
