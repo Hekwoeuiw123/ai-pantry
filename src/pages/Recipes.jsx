@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import RecipeCard from '../feature/recipes/RecipeCard'
 import { getRecipes } from '../services/aiService'
 import RecipeImage from '../feature/recipes/RecipeImage'
