@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { usePantry } from '../context/pantryContext'
 import { getMealPlan } from '../services/aiService'
 import { InfinitySpin } from 'react-loader-spinner'

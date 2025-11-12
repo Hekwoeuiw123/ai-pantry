@@ -49,7 +49,7 @@ export const getMealPlan = async (ingredients, signal) => {
   } catch (error) {
     if (axios.isCancel(error) || error.name === 'CanceledError') {
       // console.log('Request was cancelled');
-      return null;  
+      return null;
     }
     console.error('Error calling getMealPlan service:', error);
     throw new Error('Failed to generate meal plan.');
