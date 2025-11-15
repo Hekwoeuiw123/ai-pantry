@@ -18,6 +18,7 @@ import Analytics from '../src/pages/Analytics.jsx';
 import Profile from '../src/pages/Profile.jsx';
 import NotFound from '../src/pages/NotFound.jsx';
 import { PantryProvider } from './context/pantryContext.jsx'
+import { FavoriteProvider } from './context/FavoritesContext.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -58,7 +59,9 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <PantryProvider>
-        <RouterProvider router={router} />
+        <FavoriteProvider>
+          <RouterProvider router={router} />
+        </FavoriteProvider>
       </PantryProvider>
     </AuthProvider>
   </StrictMode>,

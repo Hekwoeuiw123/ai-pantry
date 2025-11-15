@@ -1,8 +1,15 @@
 import React from 'react'
-
-const Skeleton = () => {
+import './Skeleton.css'
+const Skeleton = ({height ,width ,radius}) => {
   return (
-    <div>Skeleton</div>
+    <div className='skeleton'
+    style={{
+      height : height || "200px",
+      width : width || "200px",
+      borderRadius : radius || "7px"
+    }}
+    >
+    </div>
   )
 }
 

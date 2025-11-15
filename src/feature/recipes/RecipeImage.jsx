@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { fetchImage } from '../../services/aiService'
 import Skeleton from '../../components/common/Skeleton'
-const RecipeImage = ({ imagePrompt, title }) => {
-    const [loading, setLoading] = useState(true)
-    const [imageUrl, setImageUrl] = useState(null)
+const RecipeImage = ({ imagePrompt, title ,savedUrl  }) => {
+    const [loading, setLoading] = useState(!savedUrl) // initially true tha ab savedurl nhi hoga to true hoga
+    const [imageUrl, setImageUrl] = useState(savedUrl || null) // savedUrl hua to wahi lelena else 
+                                                               // fetch karenge ham
 
     useEffect(() => {
+        if(savedUrl) return
         async function loadImage() {
             setLoading(true)
             const url = await fetchImage(imagePrompt) // takes Query like search = tomato20% + potato20% 
@@ -13,10 +15,10 @@ const RecipeImage = ({ imagePrompt, title }) => {
             setLoading(false)
         }
         loadImage()
-    }, [imagePrompt])
+    }, [imagePrompt,savedUrl])
 
     if (loading) {
-        return <Skeleton height="200px" />;
+        return <Skeleton height="200px" width="100%"/>;
     }
     return (
         <img src={imageUrl}

@@ -21,6 +21,11 @@ const Planner = () => {
   }, [])
 
   const handleGenerate = async () => {
+
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+    }
+    
     const controller = new AbortController()
     abortControllerRef.current = controller
     setLoading(true)

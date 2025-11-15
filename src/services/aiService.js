@@ -44,7 +44,7 @@ export const getMealPlan = async (ingredients, signal) => {
   try {
     const res = await axios.post('/.netlify/functions/generatePlan', {
       ingredients: ingredients,
-    }, { signal });
+    },{signal});
     return res.data; // This will be the { Monday: ... } object
   } catch (error) {
     if (axios.isCancel(error) || error.name === 'CanceledError') {

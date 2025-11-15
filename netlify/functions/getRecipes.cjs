@@ -59,7 +59,6 @@ exports.handler = async (event) =>{
      try {
       
         const {ingredients} = JSON.parse(event.body)
-        console.log(ingredients);
         if(ingredients.length === 0 || !ingredients){
             return {
                 statusCode:400,
@@ -72,7 +71,6 @@ exports.handler = async (event) =>{
         
         const response = result.response
         const JsonText = response.text() // dont need to stringify cuz already in string
-         console.log(JsonText);
 
         return {
             statusCode :200,

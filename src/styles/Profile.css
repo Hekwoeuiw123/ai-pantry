@@ -1,0 +1,109 @@
+:root {
+          --primary-color: #22c55e;
+          --primary-hover: #1aa750;
+          --text-dark: #2d3748;
+          --text-light: #718096;
+          --border-color: #e2e8f0;
+          --bg-light: #f8fafc;
+          --bg-white: #ffffff;
+        }
+        /* ---Profile CSS--- */
+         /* --- Page Layout --- */
+        .page-container {
+          /* max-width: 1200px; */
+          margin: 0 auto;
+          padding: 2rem;
+          font-family: 'Inter', sans-serif;
+        }
+
+        /* --- Profile Header --- */
+        .profile-header {
+          display: flex;
+          flex-wrap: wrap; /* Allow wrapping on small screens */
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .profile-header h2 {
+          color: var(--text-dark);
+          margin: 0;
+          font-size: 2rem;
+          font-weight: 600;
+        }
+
+        /* --- Secondary Button Style (Log Out) --- */
+        .btn-secondary {
+          background: rgb(239, 75, 75);
+          border: 1px solid var(--border-color);
+          color: var(--text-dark);
+          padding: 0.75rem 1.25rem;
+          border-radius: 8px;
+          font-size: 0.95rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+          background: var(--bg-light);
+          border-color: #cbd5e1;
+        }
+
+        /* --- Profile Details Card --- */
+        .profile-details {
+          background: var(--bg-white);
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          padding: 1.5rem;
+          font-size: 1.1rem;
+          color: var(--text-light);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-details strong {
+          color: var(--text-dark);
+          margin-right: 0.5rem;
+        }
+
+        /* --- Divider --- */
+        .profile-divider {
+          border: 0;
+          border-top: 1px solid var(--border-color);
+          margin: 2rem 0;
+        }
+
+        /* --- FavoriteRecipesList CSS --- */
+        .favorites-section {
+          width: 100%;
+          /* max-width: 1200px; */
+          margin: 1.5rem auto;
+          padding: 1rem;
+          font-family: 'Inter', sans-serif;
+        }
+
+        .favorites-section h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: var(--text-dark);
+          margin-bottom: 1rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid var(--border-color);
+        }
+
+        .recipe-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.5rem;
+        }
+        
+        .empty-favorites-message {
+          text-align: center;
+          padding: 3rem 1rem;
+          font-size: 1rem;
+          color: var(--text-light);
+          background: var(--bg-white);
+          border-radius: 12px;
+          border: 1px dashed var(--border-color);
+        }

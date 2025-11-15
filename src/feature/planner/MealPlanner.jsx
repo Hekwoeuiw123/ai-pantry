@@ -2,7 +2,6 @@ import React from 'react'
 
 const MealPlanner = ({ plan }) => {
     const days = Object.keys(plan)
-
     return (
         <div className='meal-plan-grid'>
             {

@@ -47,6 +47,7 @@
 
 /* --- Recipe Card Styling --- */
 .recipe-card {
+    position: relative;
     background: var(--bg-white);
     border-radius: 12px;
     border: 1px solid var(--border-color);
@@ -126,6 +127,49 @@
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-dark);
+}
+
+.favorite-btn {
+    position: absolute;
+    padding: 0;
+    top: 1rem;
+    /* 12px */
+    right: 1rem;
+    /* 12px */
+    z-index: 10;
+
+    /* Styling */
+    background: var(--bg-white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    /* Icon Centering */
+    display: grid;
+    place-items: center;
+
+    /* Effects */
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+
+    /* Default icon color */
+    color: var(--text-light);
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.favorite-btn:active {
+    transform: scale(1);
+}
+
+/* Make the outlined star (FaRegStar) a bit bolder */
+.favorite-btn svg[fill="none"] {
+    stroke-width: 40;
 }
 
 /* --- Button Styles --- */
