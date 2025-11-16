@@ -154,3 +154,80 @@
   gap: 0;
   padding: 0.8rem;
 }
+
+
+/* === RESPONSIVE STYLES  === */
+@media (max-width: 1280px) {
+  .sidebar {
+    width: 240px;
+  }
+  
+  .sidebar.collapse-sidebar {
+    width: 75px;
+  }
+}
+
+
+/*
+ * --- Tablets & Mobile (<= 1024px) ---
+ */
+@media (max-width: 1024px) {
+  
+  /* * The "expanded" state (.sidebar) is now a visible overlay.
+   */
+  .sidebar {
+    position: fixed; /* Changed from sticky to fixed */
+    z-index: 1000;
+    width: 280px; 
+    transform: translateX(0);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out; 
+  }
+
+  .sidebar.collapse-sidebar {
+    transform: translateX(-100%);
+    box-shadow: none;
+    width: 280px; 
+  }
+
+
+  .sidebar-header {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .sidebar-navlinks,
+  .sidebar-footer {
+    padding: 0.75rem;
+  }
+  
+  .pantry-logo {
+    font-size: 1.25rem;
+  }
+  
+  .nav-link {
+    padding: 0.75rem 1rem;
+    gap: 0.8rem;
+  }
+
+  .nav-text {
+    font-size: 0.9rem;
+  }
+
+  
+  .sidebar.collapse-sidebar .pantry-logo,
+  .sidebar.collapse-sidebar .nav-text {
+    opacity: 1;
+    width: auto; /* Reset from 0 */
+    pointer-events: auto; /* Reset from none */
+  }
+
+  .sidebar.collapse-sidebar .sidebar-header {
+    justify-content: flex-start; /* Reset from center */
+  }
+
+  .sidebar.collapse-sidebar .nav-link {
+    justify-content: flex-start; /* Reset from center */
+    gap: 0.8rem; /* Reset from 0 */
+    padding: 0.75rem 1rem; /* Reset from 0.8rem */
+  }
+}

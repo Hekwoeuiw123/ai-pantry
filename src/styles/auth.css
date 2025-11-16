@@ -117,8 +117,6 @@
 }
 
 
-
-
 .password-input {
   display: flex;
   align-items: center;
@@ -188,4 +186,74 @@
   text-align: center;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+}
+
+
+/* ===========================
+   RESPONSIVE CSS 
+   =========================== */
+
+
+/* === Mobile Small (max-width: 480px) === */
+@media (max-width: 480px) {
+  .auth-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .auth-container h2 {
+    font-size: 1.25rem;
+  }
+
+  .auth-form input {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .auth-form button[type="submit"],
+  .btn-google {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-google img {
+    width: 15px;
+  }
+
+  .auth-separator {
+    margin: 1rem 0;
+    font-size: 0.8rem;
+  }
+
+  .auth-switch {
+    font-size: 0.8rem;
+  }
+}
+
+/* === Mobile Large (481px to 767px) === */
+@media (max-width: 767px) {
+  .auth-container {
+    margin: 3rem auto;
+    max-width: 90%;
+  }
+}
+
+/* === Tablets (768px to 1024px) === */
+@media (max-width: 1024px) {
+  .auth-container {
+    max-width: 420px;
+    padding: 2rem;
+  }
+}
+
+/* === Large Screens (1280px+) === */
+@media (min-width: 1280px) {
+  .auth-container {
+    max-width: 550px;
+  }
+
+  .auth-container h2 {
+    font-size: 1.6rem;
+  }
 }

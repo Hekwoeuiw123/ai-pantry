@@ -5,7 +5,7 @@ import { signOutUser } from '../../hooks/useAuth'
 import { toast } from 'react-toastify';
 import logout from '../../assets/icons/logout.png'
 import NotificationBell from '../../feature/notifications/NotificationBell';
-const Header = () => {
+const Header = ({onToggleSidebar}) => {
   const { currentUser } = useAuthData();
   const navigate = useNavigate()
   const location = useLocation()
@@ -56,7 +56,18 @@ const Header = () => {
   }
   return (
     <div className='header' >
-      <div className="page-title">{page_title[location.pathname]}</div>
+      <div className="header-left">
+        <button
+          onClick={onToggleSidebar}
+          className="hamburger-btn"
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div className="page-title">{page_title[location.pathname]}</div>
+      </div>
       <div className="header-controls">
         <NotificationBell />
         <UserProfile />

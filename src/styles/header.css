@@ -51,3 +51,54 @@
 .logout-button-simple .nav-icon {
   color: var(--text-light);
 }
+
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.page-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark, #2d3748);
+}
+
+/* he Hamburger Button */
+.hamburger-btn {
+  /* By default, it's HIDDEN on desktop */
+  display: none;
+  
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10; /* Ensures it's clickable */
+}
+
+/* The "bars" of the hamburger */
+.hamburger-btn span {
+  width: 28px;
+  height: 3px;
+  background: var(--text-dark, #2d3748);
+  border-radius: 3px;
+  transition: all 0.3s linear;
+}
+
+
+@media (max-width: 1024px) {
+  .hamburger-btn {
+    display: flex; 
+  }
+
+  @media (max-width: 480px) {
+    .page-title {
+      display: none;
+    }
+  }
+}

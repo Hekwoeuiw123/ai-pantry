@@ -187,3 +187,74 @@
     font-weight: 500;
     margin: 1.5rem 0;
 }
+
+
+
+/* ===========================
+   RESPONSIVE CSS 
+   =========================== */
+
+
+/* === Small Mobile (max-width: 480px) === */
+@media (max-width: 480px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .planner-header {
+    padding: 1rem 1.2rem;
+  }
+
+  .meal-plan-grid {
+    grid-template-columns: 1fr; /* full stacking for small screens */
+  }
+
+  .meal-plan-day-title {
+    font-size: 1rem;
+  }
+
+  .meal-plan-meal p {
+    font-size: 0.9rem;
+  }
+
+  .meal-plan-meal span {
+    font-size: 0.8rem;
+  }
+}
+
+/* === Large Mobile (481px to 767px) === */
+@media (max-width: 767px) {
+  .meal-plan-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+
+  .meal-plan-day {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+/* === Tablet (768px to 1024px) === */
+@media (max-width: 1024px) {
+  .meal-plan-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
+  }
+
+  .planner-header {
+    padding: 1.2rem 1.5rem;
+  }
+}
+
+/* === Small Laptop (1025px to 1280px) === */
+@media (max-width: 1280px) {
+  .meal-plan-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on small laptops */
+  }
+}
+
+/* === Extra-Large Screens (1400px+) === */
+@media (min-width: 1400px) {
+  .meal-plan-day-title {
+    font-size: 1.2rem;
+  }
+}

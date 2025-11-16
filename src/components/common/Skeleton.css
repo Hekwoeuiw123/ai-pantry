@@ -41,3 +41,37 @@
   flex-direction: column;
   gap: 8px;
 }
+
+/* Mobile Screens (max 480px) */
+@media (max-width: 480px) {
+  .card-skeleton {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .skeleton::after {
+    transform: translateX(200px);
+  }
+}
+
+/* Tablets (481px to 768px) */
+@media (max-width: 768px) {
+  .card-skeleton {
+    width: 80%;
+  }
+
+  .skeleton::after {
+    transform: translateX(250px);
+  }
+}
+
+/* Large Screens (1200px and above) */
+@media (min-width: 1200px) {
+  .card-skeleton {
+    width: 350px;
+  }
+
+  .card-skeleton-content {
+    gap: 12px;
+  }
+}

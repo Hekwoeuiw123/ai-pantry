@@ -130,39 +130,55 @@
     font-size: 1rem;
 }
 
-@media (max-width: 768px) {
-  .page-container {
-    padding: 1.5rem;
-  }
+/* ======================================================
+   RESPONSIVE CSS 
+   ====================================================== */
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .charts-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- Mobile Screens (max-width: 480px) --- */
+/* === Small Mobile (max-width: 480px) === */
 @media (max-width: 480px) {
   .page-container {
     padding: 1rem;
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Always 1 column for small screens */
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr; /* Prevent horizontal scroll */
   }
 
   .stats-card h1 {
-    font-size: 2rem;
-  }
-
-  .chart-container {
-    padding: 1rem;
+    font-size: 1.8rem;
   }
 
   .chart-container h3 {
     font-size: 1.1rem;
   }
+
+  .empty-chart p {
+    font-size: 0.9rem;
+  }
 }
+
+/* === Large Mobile (481px - 767px) === */
+@media (max-width: 767px) {
+  .page-container {
+    padding: 1.2rem;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr; /* Mobile & large mobile = 1 column */
+  }
+}
+
+/* === Tablet (768px - 1024px) === */
+@media (max-width: 1024px) {
+
+
+  .stats-card h1 {
+    font-size: 2rem;
+  }
+}
+
+

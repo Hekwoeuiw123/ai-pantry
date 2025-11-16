@@ -6,25 +6,25 @@ import recipess from '../../assets/icons/recipess.png'
 import planner from '../../assets/icons/planner.png'
 import hamburger from '../../assets/icons/hamburger.png'
 import setting from '../../assets/icons/setting.png'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
-const Sidebar = () => {
+const Sidebar = ({isOpen, onToggleSidebar}) => {
 
-    const [isOpen, setIsOpen] = useState(true)
-    const toggleSidebar = () => setIsOpen(!isOpen)
+    // const [isOpen, setIsOpen] = useState(true)
+    // const toggleSidebar = () => setIsOpen(!isOpen)
 
     // Component to show icon with their text whole thing inside <NavLink>
     const SidebarLink = ({ to, icon, text }) => {
         return <NavLink to={to} className="nav-link">
-            <img src={icon} alt={text} className="nav-icon" />
+            <img src={icon} title={text} alt={text} className="nav-icon" />
             <span className='nav-text'>{text}</span>
         </NavLink>
     }
     return (
         <nav className={`sidebar ${!isOpen ? 'collapse-sidebar' : ''}`}>
             <div className="sidebar-header">
-                <button onClick={toggleSidebar} className="collapse-btn">
+                <button onClick={onToggleSidebar} className="collapse-btn">
                     <img src={hamburger} alt="Collapse" />
                 </button>
                 <span className='pantry-logo' >AI Pantry</span>

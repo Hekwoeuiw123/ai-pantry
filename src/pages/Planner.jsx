@@ -3,6 +3,7 @@ import { usePantry } from '../context/pantryContext'
 import { getMealPlan } from '../services/aiService'
 import { InfinitySpin } from 'react-loader-spinner'
 import MealPlanner from '../feature/planner/MealPlanner'
+import Skeleton from '../components/common/Skeleton'
 import '../styles/MealPlanner.css'
 const Planner = () => {
 
@@ -60,7 +61,7 @@ const Planner = () => {
         </button>
       </div>
       {error && <p className="auth-error">{error}</p>}
-      {loading && <InfinitySpin height="24" width="24" />}
+      {loading && <Skeleton height="500px" width="500px" />}
       {/* Generate a Grid of Plan  */}
       <MealPlanner plan={plan} />
     </div>
