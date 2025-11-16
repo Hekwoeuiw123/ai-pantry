@@ -4,7 +4,6 @@ import { fetchImage, getRecipes } from '../services/aiService'
 import { useFavorites } from '../context/FavoritesContext'
 import RecipeGenerator from '../feature/recipes/RecipeGenerator'
 import RecipeModal from '../feature/recipes/RecipeModal'
-import { InfinitySpin } from 'react-loader-spinner'
 import '../styles/Recipes.css'
 import { addFavoriteRecipe, removeFavoriteRecipe } from '../services/favoritePantryService'
 import { toast } from 'react-toastify'
@@ -88,6 +87,7 @@ const Recipes = () => {
     e.stopPropagation(); // Stop it from triggering 'onView'
 
     if (!currentUser) return;
+
     if (isFavorited) {
       // It's already a favorite, so we remove it
       removeFavoriteRecipe(currentUser.uid, favoriteId).then(() => {
@@ -111,7 +111,7 @@ const Recipes = () => {
       // jo ki ho raha tha in profile Favourite Recipe List 
 
 
-      // so earlier we r feting the image then adding that img in list but UI slow ho ja raha tha isse
+      // so earlier we r fetching the image then adding that img in list but UI slow ho ja raha tha isse
       // now we first add the placeholderimgurl and backend me img ko update krdenge
       fetchImage(recipe.imagePrompt)
         .then(url => {

@@ -30,7 +30,7 @@ const FavoriteRecipeList = () => {
                 {
                     (!loading && favorites.length === 0)
                         ?
-                        <p>You haven't saved any recipes yet. Go to the Recipes page and click the star!</p>
+                        <p className='empty-favorites-message'>You haven't saved any recipes yet. Go to the Recipes page and click the star!</p>
                         : favorites.map((recipe) => (
                             <RecipeCard
                                 key={recipe.id}

@@ -1,8 +1,11 @@
 import React from 'react'
-
+import AnalyticsDashboard from '../feature/analytics/AnalyticsDashboard'
+import '../styles/Analysis.css'
 const Analytics = () => {
   return (
-    <div>Analytics</div>
+    <div className='page-container'>
+      <AnalyticsDashboard/>
+    </div>
   )
 }
 

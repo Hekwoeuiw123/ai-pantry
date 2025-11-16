@@ -7,7 +7,7 @@ const PantryToolbar = ({
   onFilterChange,
   onSortChange
 }) => {
-  const categories = ['All', 'Fruit', 'Vegetable', 'Dairy', 'Meat', 'Other'];
+  const categories = ['All', 'Fruit', 'Vegetable', 'Dairy', 'Meat','Grains','Other'];
  /// We Passing all this data to DashBoard we will Handle all this passed Function There
   return (
     <div className='pantry-toolbar'>

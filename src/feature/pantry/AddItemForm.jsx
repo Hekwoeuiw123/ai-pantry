@@ -13,7 +13,7 @@ const AddItemForm = ({ onSuccess }) => {
     const [error, setError] = useState(null)
     const { currentUser } = useAuthData()
 
-    const categories = ['Fruit', 'Vegetable', 'Dairy', 'Meat', 'Other'];
+    const categories = ['Fruit', 'Vegetable', 'Dairy', 'Meat', 'Grains', 'Other'];
 
     // so Basically ye form modal ke andar jayega so jo ki addbutton  click pe open hoga
     // modal onclose prop leta hai jo cloase krdeta hai modal ko 
@@ -30,7 +30,7 @@ const AddItemForm = ({ onSuccess }) => {
                 userID: currentUser.uid
             }
             //  console.log(newItem);
-            
+
             await addPantryItem(newItem);
             setCategory("Other")
             setName("")
@@ -70,6 +70,7 @@ const AddItemForm = ({ onSuccess }) => {
             />
             <label>Category</label>
             <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="N/A">Select Category</option>
                 {
                     categories.map((cate) => (<option key={cate} value={cate} >{cate}</option>))
                 }

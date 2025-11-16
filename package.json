@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@google/generative-ai": "^0.24.1",
+    "@mui/x-charts": "^8.18.0",
     "axios": "^1.13.1",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.3",
